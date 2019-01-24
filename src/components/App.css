@@ -1,8 +1,42 @@
-.bar{
-  background-color: orange;
-  height: 50px;
-  width: 100%;
+.barleft{
+  width: 20%;
+  height: 800px;
+  background-color: #3D4750;
+  z-index: 0;
+  padding-top: 50px ;
+
 }
 body{
   background-color: beige;
+  height: 1280px;
+}
+.table{
+  width: 80%;
+}
+.nav{
+  background-color: orange;
+  height: 50px;
+  width: 100%;
+  padding-left: 10px;
+
+
+}
+.all{
+  display: flex;
+}
+
+.barright{
+  width: 20%;
+  height: 800px;
+  background-color: #fff;
+}
+.barright ul{
+  padding-top: 300px;
+  color: #3D4750;
+}
+
+.nav h2  {
+  padding-left:0.1em;
+  padding-bottom:0.1em;
+  color: white;
 }
