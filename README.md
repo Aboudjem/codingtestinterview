@@ -9,10 +9,10 @@ EmberJS
 MithrilJS
 VueJS
 
-##Install
+## Install
 
-*Npm install
-*Npm start
+* Npm install
+* Npm start
 
 Depending on the browser there is some issue with **Cross-Origin Resource Sharing (CORS)**
 It can be fixed temporarily by installing this extension: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi/related
