@@ -20,7 +20,7 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 
 let counter = 0;
-
+// Order desc
 function desc(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -30,6 +30,9 @@ function desc(a, b, orderBy) {
   }
   return 0;
 }
+
+
+// Order by char
 
 function stableSort(array, cmp) {
   const stabilizedThis = array.map((el, index) => [el, index]);
@@ -41,11 +44,14 @@ function stableSort(array, cmp) {
   return stabilizedThis.map(el => el[0]);
 }
 
+
+// Select to order by desc / asc
 function getSorting(order, orderBy) {
   return order === 'desc' ? (a, b) => desc(a, b, orderBy) : (a, b) => -desc(a, b, orderBy);
 }
 
 
+// header row
 const rows = [
   { id: 'created_at', numeric: false, disablePadding: true, label: 'DD-MM-YYYY' },
   { id: 'counterparty_name', numeric: false, disablePadding: false, label: 'Counterparty Name' },
@@ -53,6 +59,7 @@ const rows = [
   { id: 'amount', numeric: true, disablePadding: false, label: 'Amount' },
 ];
 
+// EnhancedTable (Main table with all transactions)
 class EnhancedTableHead extends React.Component {
   createSortHandler = property => event => {
     this.props.onRequestSort(event, property);
@@ -65,11 +72,6 @@ class EnhancedTableHead extends React.Component {
       <TableHead>
         <TableRow>
           <TableCell padding="checkbox">
-            <Checkbox
-              indeterminate={numSelected > 0 && numSelected < rowCount}
-              checked={numSelected === rowCount}
-              onChange={onSelectAllClick}
-            />
           </TableCell>
           {rows.map(
             row => (
@@ -187,7 +189,7 @@ const styles = theme => ({
     marginTop: theme.spacing.unit * 3,
   },
   table: {
-    minWidth: 1020,
+    minWidth: 1080,
   },
   tableWrapper: {
     overflowX: 'auto',
@@ -199,10 +201,10 @@ class EnhancedTable extends React.Component {
   state = {
     order: 'asc',
     orderBy: 'Name',
-    selected: [],
-    data: [],
+    selected: [], // Table of selected transactions
+    data: [], // Table of all transactions (JSon)
     page: 0,
-    rowsPerPage: 10,
+    rowsPerPage: 10, // Row to display per page
   };
 
   handleRequestSort = (event, property) => {
@@ -289,7 +291,8 @@ class EnhancedTable extends React.Component {
                     >
                       <TableCell padding="checkbox">
                         <Checkbox checked={isSelected} />
-                      </TableCell>
+                      </TableCell> 
+                      {/* Displaying all informations from the json  */}
                       <TableCell align="left">{n.created_at}</TableCell>
                       <TableCell align="left">{n.counterparty_name}</TableCell>
                       <TableCell align="left">{n.operation_type}</TableCell>

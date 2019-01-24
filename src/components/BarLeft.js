@@ -11,6 +11,8 @@ class BarLeft extends React.Component {
     let i = 0;
     let tab = [];
    
+
+    // Incrementation of each selected 'operation_type' with value 'transfer' or 'invoice'
     this.props.transaction.map(x => {
       if (x.operation_type == 'transfer')
         t++;
@@ -23,7 +25,9 @@ class BarLeft extends React.Component {
   render() {
     return (
       <div className="barleft" align="middle" style={{'justify-content': 'flex-start'}}>
-        <ul style={{color:"white", 'list-style-type': 'none'}}>
+        <ul style={{color:"white", 'list-style-type': 'none'}}> 
+
+
           <li>Overview</li>
           <li>Transactions({this.props.selected.length})</li>
           <hr/>
