@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Coding interview
+In this exercice, you will implement a single page application based on a provided mockup.
 
-## Available Scripts
+Even though you can use any tools/libs you want, we recommend you to use one of the following framework:
 
-In the project directory, you can run:
+BackboneJS
+ReactJS
+EmberJS
+MithrilJS
+VueJS
 
-### `npm start`
+##Install
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+*Npm install
+*Npm start
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Depending on the browser there is some issue with **Cross-Origin Resource Sharing (CORS)**
+It can be fixed temporarily by installing this extension: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi/related
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Dependencies
+* API endpoint 
+* [Mockup](https://gist.githubusercontent.com/GabKlein/45e886536ccee6e9f678418aca37a77d/raw/67654000b2e76e7fb4c89b28e191f27e1de84bda/mockup.png)
 
-### `npm run build`
+![Mockup](https://gist.githubusercontent.com/GabKlein/45e886536ccee6e9f678418aca37a77d/raw/67654000b2e76e7fb4c89b28e191f27e1de84bda/mockup.png)
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## 1. Integration
+In this section, you will implement the mockup using a JS single-page application.
+This application should have the following routes:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* `/`
+* `/transactions`
 
-### `npm run eject`
+For the transactions route, you will retrieve the data to display using an API call.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+NOTE: Here, we are looking for a pixel perfect integration of the mockup
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 2. Interaction
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+In this section, you will implement the following interactions on the transactions table:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* Make each column sortable.
+* Add support for row multi select using the Shift key.
+* A single row selection should display the details into the right side panel.
+* A multi row selection should display the selected transaction's ids into the right side panel.
 
-## Learn More
+NOTE: Here, we are looking for a clean, maintainable and DRY code
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 3. Code review
+In this section, we want to see how you would present your work (for review) that need to be integrate into the master branch.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Issues
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Depending on the browser there is some issue with **Cross-Origin Resource Sharing (CORS)**
+It can be fixed temporarily by installing this extension: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi/related
