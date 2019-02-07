@@ -47,8 +47,6 @@ In this section, you will implement the following interactions on the transactio
 
 NOTE: Here, we are looking for a clean, maintainable and DRY code
 
-## 3. Code review
-In this section, we want to see how you would present your work (for review) that need to be integrate into the master branch.
 
 ## Issues
 
