@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -9,14 +8,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
-import DeleteIcon from '@material-ui/icons/Delete';
-import FilterListIcon from '@material-ui/icons/FilterList';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 
 let counter = 0;
@@ -69,15 +63,17 @@ class EnhancedTableHead extends React.Component {
     const { onSelectAllClick, order, orderBy, numSelected, rowCount } = this.props;
 
     return (
-      <TableHead>
-        <TableRow>
-          <TableCell padding="checkbox">
-          </TableCell>
+      <TableHead >
+        <TableRow >
+          <TableCell padding="checkbox" >
+          </TableCell >
           {rows.map(
             row => (
               <TableCell
+
                 key={row.id}
-                align={row.numeric ? 'right' : 'left'}
+                align={'right'}
+                style={{paddingRight : '50px'}}
                 padding={row.disablePadding ? 'none' : 'default'}
                 sortDirection={orderBy === row.id ? order : false}
               >
@@ -138,55 +134,10 @@ const toolbarStyles = theme => ({
   },
 });
 
-let EnhancedTableToolbar = props => {
-  const { numSelected, classes } = props;
-
-  return (
-    <Toolbar
-      className={classNames(classes.root, {
-        [classes.highlight]: numSelected > 0,
-      })}
-    >
-      <div className={classes.title}>
-        {numSelected > 0 ? (
-          <Typography color="inherit" variant="subtitle1">
-            {numSelected} selected
-          </Typography>
-        ) : (
-          <div/>
-        )}
-      </div>
-      <div className={classes.spacer} />
-      <div className={classes.actions}>
-        {numSelected > 0 ? (
-          <Tooltip title="Delete">
-            <IconButton aria-label="Delete">
-              <DeleteIcon />
-            </IconButton>
-          </Tooltip>
-        ) : (
-          <Tooltip title="Filter list">
-            <IconButton aria-label="Filter list">
-              <FilterListIcon />
-            </IconButton>
-          </Tooltip>
-        )}
-      </div>
-    </Toolbar>
-  );
-};
-
-EnhancedTableToolbar.propTypes = {
-  classes: PropTypes.object.isRequired,
-  numSelected: PropTypes.number.isRequired,
-};
-
-EnhancedTableToolbar = withStyles(toolbarStyles)(EnhancedTableToolbar);
-
 const styles = theme => ({
   root: {
+
     width: '100%',
-    marginTop: theme.spacing.unit * 3,
   },
   table: {
     minWidth: 1080,
@@ -194,6 +145,7 @@ const styles = theme => ({
   tableWrapper: {
     overflowX: 'auto',
   },
+
 });
 
 class EnhancedTable extends React.Component {
@@ -263,9 +215,8 @@ class EnhancedTable extends React.Component {
       const emptyRows = rowsPerPage - Math.min(rowsPerPage, data.length - page * rowsPerPage);
     return (
       <Paper className={classes.root}>
-        <EnhancedTableToolbar numSelected={selected.length} />
-        <div className={classes.tableWrapper}>
-          <Table className={classes.table} aria-labelledby="tableTitle">
+        <div className={classes.tableWrapper} >
+          <Table className={classes.table} aria-labelledby="tableTitle" >
             <EnhancedTableHead
               numSelected={selected.length}
               order={order}
@@ -274,13 +225,13 @@ class EnhancedTable extends React.Component {
               onRequestSort={this.handleRequestSort}
               rowCount={data.length}
             />
-            <TableBody>
+            <TableBody  >
               {stableSort(data, getSorting(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map(n => {
                   const isSelected = this.isSelected(n.id);
                   return (
-                    <TableRow
+                    <TableRow align="right"
                       hover
                       onClick={event => this.handleClick(event, n.id)}
                       role="checkbox"
@@ -288,15 +239,17 @@ class EnhancedTable extends React.Component {
                       tabIndex={-1}
                       key={n.id}
                       selected={isSelected}
+
                     >
-                      <TableCell padding="checkbox">
+                      <TableCell padding="checkbox" >
                         <Checkbox checked={isSelected} />
-                      </TableCell> 
+                      </TableCell >
                       {/* Displaying all informations from the json  */}
-                      <TableCell align="left">{n.created_at}</TableCell>
-                      <TableCell align="left">{n.counterparty_name}</TableCell>
-                      <TableCell align="left">{n.operation_type}</TableCell>
-                      <TableCell align="left">{n.amount}</TableCell>
+                      <TableCell align="right" style={{ fontSize: '15px' }} >{n.created_at.split('T')[0]}<br/>{(n.created_at.split('T')[1]).split('-')[0]}</TableCell>
+                      <TableCell align="right" style={{ fontSize: '15px' }}>{n.counterparty_name}</TableCell>
+                      <TableCell align="right" style={{ fontSize: '15px' }}>{n.operation_type}</TableCell>
+                      <TableCell align="right" style={{ fontSize: '15px' }}>{ n.amount}{ n.amount[0] == '-' ? <i className="material-icons" style={{'color': 'red'}}> arrow_drop_down </i> : <i className="material-icons" style={{'color': 'green'}}> arrow_drop_up </i>}
+                      </TableCell>
                     </TableRow>
                   );
                 })}

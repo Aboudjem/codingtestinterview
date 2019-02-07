@@ -18,7 +18,7 @@ class BarRight extends React.Component {
       <div className="barright">
         {/* Ternary to display details of selected transaction or simple message if none transaction selected*/}
       
-      { size.length == 0 ? <ul>Click on one or several transactions to see details</ul>: this.props.selected.map(x => <String json={this.props.transaction[x - 1]} />) }
+      { size.length == 0 ? <ul>Click on one or several transactions to see details</ul>: this.props.selected.map(x => <String json={this.props.transaction[x - 1].id + ' ' + this.props.transaction[x - 1].operation_type + ' ' +  this.props.transaction[x - 1].counterparty_name + ' ' + ' '} />) }
       </div>
     );
   }

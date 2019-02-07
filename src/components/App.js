@@ -12,7 +12,7 @@ class App extends Component {
 
   state = {
     transaction: [],
-            selected: []         
+            selected: []
   }; // Using axios to get api's informations
   componentDidMount() {
     axios.get("http://private-3f9656-paymiuminterviews.apiary-mock.com/transactions")
@@ -25,14 +25,15 @@ class App extends Component {
   }
   render() {
     return (
-      <div> 
+      <div>
         {/* Header Component */}
         <Header />
+        <BarLeft selected={this.state.selected} transaction={this.state.transaction}/>
+
         <div className="all">
         {/* Left Bar Components with updated information*/}
-          <BarLeft selected={this.state.selected} transaction={this.state.transaction}/>
-        {/* Main Components with all requested transactions*/}        
-          <EnhancedTable data={this.state.transaction} callback={this.callback} className="table"/>
+        {/* Main Components with all requested transactions*/}
+          <EnhancedTable data={this.state.transaction} callback={this.callback} className="table" />
         {/* Right Bar Components with updated information*/}
         <BarRight selected={this.state.selected} transaction={this.state.transaction}/>
         </div>
