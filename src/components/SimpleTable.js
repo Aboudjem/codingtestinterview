@@ -73,7 +73,7 @@ class EnhancedTableHead extends React.Component {
 
                 key={row.id}
                 align={'right'}
-                style={{paddingRight : '50px'}}
+                style={{paddingRight : '50px', fontSize : '15px', fontWeight : 500}}
                 padding={row.disablePadding ? 'none' : 'default'}
                 sortDirection={orderBy === row.id ? order : false}
               >
